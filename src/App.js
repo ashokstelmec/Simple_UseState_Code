@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
 function App() {
+  const [myObject, setMyObject] = React.useState({
+    name: "Ashok",
+    age: "27",
+    Degree: "B.Tech",
+    RollNo: "3614282",
+  });
+
+  const handleClick = (e) => {
+    setMyObject({...myObject, name: "Sujal Yadav", Degree: "M.Tech" });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        Name: {myObject.name} & age: {myObject.age} & Degree: {myObject.Degree}{" "}
+        & RollNo: {myObject.RollNo}
+      </h1>
+      <button className="btn" onClick={handleClick}>
+        Update
+      </button>
     </div>
   );
 }
